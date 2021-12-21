@@ -2,7 +2,7 @@
   <div class="auth-form-container">
     <div class="auth-form-title">{{ title }}</div>
     <form class="auth-form" @submit="$emit('submit', $event)">
-      <slot />
+      <slot/>
     </form>
   </div>
 </template>

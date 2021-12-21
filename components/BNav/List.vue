@@ -14,5 +14,6 @@ export default class BNavList extends Vue {}
 <style lang="less">
   .b-nav {
     display: flex;
+    height: 56px;
   }
 </style>

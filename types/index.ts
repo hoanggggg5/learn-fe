@@ -10,18 +10,3 @@ export interface Column {
     class?: string;
     align?: Align;
 }
-
-export interface Filter {
-    id: number;
-    default: string;
-    type?: any;
-    title: string;
-    transform: string;
-}
-
-export enum MusicState {
-    Pending = 'pending',
-    Active = 'active',
-    Deleted = 'deleted',
-    Rejected = 'rejected'
-}

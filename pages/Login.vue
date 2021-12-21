@@ -3,7 +3,9 @@
     <AuthForm title="Đăng nhập MEXC" @submit.prevent="login" >
       <AuthInput v-model="email" type="email" placeholder="Email" label="Email :" :error="email_error"/>
       <AuthInput v-model="password" type="password" placeholder="Password" label="Password :" :error="password_error"/>
-      <AuthButton type="submit" content="Login"/>
+      <AuthButton type="submit">
+        Login
+      </AuthButton>
       <AuthLinks>
         <nuxt-link to="/forgotPassword">Forget Password</nuxt-link>
         <nuxt-link to="/register">Sign Up</nuxt-link>

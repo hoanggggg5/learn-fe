@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <Header/>
-    <div class="coin">
+    <div class="coin-list">
       <div class="title">Coin List</div>
     </div>
     <Block class="musics">
@@ -21,7 +21,7 @@ import { Align, Column } from '@/types'
 export default class index extends Vue {
   columns: Column[] = [
     {
-      key: 'name',
+      key: 'coin',
       title: 'Coin Name',
       align: Align.Left,  
     },
@@ -43,28 +43,56 @@ export default class index extends Vue {
   ]
 
   data: any[] = [
-    {
-      name: "BTC Bitcoin",
+    { 
+      coin: {
+        logo: "https://assets.peatio.com/assets/v1/color/normal/btc.png",
+        symbol: "BTC",
+        name: "Bitcoin",
+      },
       price: "$ 48564.78",
-      change: "+1.85%",
+      change: {
+        value: "1.85%",
+        status: "up"
+      },
       markets: ""
     },
-    {
-      name: "BTC Bitcoin",
+    { 
+      coin: {
+        logo: "https://assets.peatio.com/assets/v1/color/normal/btc.png",
+        symbol: "BTC",
+        name: "Bitcoin",
+      },
       price: "$ 48564.78",
-      change: "+1.85%",
+      change: {
+        value: "1.85%",
+        status: "up"
+      },
       markets: ""
     },
-    {
-      name: "BTC Bitcoin",
+    { 
+      coin: {
+        logo: "https://assets.peatio.com/assets/v1/color/normal/btc.png",
+        symbol: "BTC",
+        name: "Bitcoin",
+      },
       price: "$ 48564.78",
-      change: "+1.85%",
+      change: {
+        value: "1.85%",
+        status: "down"
+      },
       markets: ""
     },
-    {
-      name: "BTC Bitcoin",
+    { 
+      coin: {
+        logo: "https://assets.peatio.com/assets/v1/color/normal/btc.png",
+        symbol: "BTC",
+        name: "Bitcoin",
+      },
       price: "$ 48564.78",
-      change: "+1.85%",
+      change: {
+        value: "1.85%",
+        status: "up"
+      },
       markets: ""
     }
   ]
@@ -79,7 +107,7 @@ export default class index extends Vue {
     font-family: 'Roboto', sans-serif;
   }
   
-  .coin {
+  .coin-list {
     margin-top: 70px;
     display: flex;
     justify-content: center;

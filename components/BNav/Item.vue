@@ -1,15 +1,15 @@
 <template>
-  <div class="b-nav-item">
-    <slot/>
-    <template v-if="type === 'dropdown'">
-      <i class="fas fa-chevron-down"></i>
-      <template v-if="content">
-        <DropDownMenu>
-          <DropDownList :title="title" :content="listDropDown"/>
-        </DropDownMenu>
+  <DropDown :placement="position">
+    <div class="b-nav-item">
+      <slot/>
+      <template v-if="type === 'dropdown'">
+        <i class="fas fa-chevron-down"></i>
       </template>
+    </div>
+    <template v-if="type === 'dropdown'" slot="overlay">
+      <DropDownList  v-for="(item, index) in listDropDown" :key="index" :title="item.title" :content="item.listDropItem"/>
     </template>
-  </div>
+  </DropDown>
 </template>
 
 <script lang="ts">
@@ -19,18 +19,21 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
 export default class BNavItem extends Vue {
   @Prop() readonly type!: string;
   @Prop() readonly content!: any;
-
-  get title() {
-    return this.content?.title
-  }
+  @Prop({ default: "bottomLeft" }) readonly position!: any;
 
   get listDropDown() {
-    return this.content?.listDrop[0].listDropItem
+    return this.content?.listDrop
   }
 }
 </script>
 
 <style lang="less">
+  .language-menu {
+    .dropdown-overlay {
+      width: 280px;
+    }
+  }
+
   .b-nav-item {
     display: flex;
     position: relative;
@@ -53,10 +56,6 @@ export default class BNavItem extends Vue {
         transform: rotate(180deg);
         transition: all 0.4s ease;
       }
-
-      .drop-down {
-        display: block;
-      }
     }
 
     a {
@@ -64,4 +63,6 @@ export default class BNavItem extends Vue {
       color: #fff;
     }
   }
+
+  
 </style>

@@ -16,3 +16,38 @@ export default class TableRow extends Vue {
   @Prop() readonly to!: string
 }
 </script>
+
+<style lang="less">
+  .a-table-row {
+    &-coin {
+      display: flex;
+      
+      &-logo, &-symbol, &-name {
+        display: flex;
+        align-items: center;
+      }
+  
+      &-logo {
+        width: 28px;
+        height: 28px;
+        margin-right: 20px;
+        border-radius: 50%;
+      }
+  
+      &-symbol {
+        color: #303133;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 24px;
+      }
+  
+      &-name {
+        margin-left: 10px;
+        color: #909399;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+    }
+  }
+</style>

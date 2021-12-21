@@ -19,19 +19,26 @@
         <span
           v-for="col in columns"
           :key="col.key"
-          :class="[
-            col.key, col.class, 'item', `text-${col.align || 'left'}`,
-            {
-              'price-change': col.key === 'change'
-            }
-          ]"
+          :class="[ col.key, col.class, 'item', `text-${col.align || 'left'}` ]"
         >
-          <span>{{ row[col.key] }}</span>
+          <template v-if="col.key === 'coin'">
+            <div class="a-table-row-coin">
+              <img :src="row[col.key].logo" alt="" class="a-table-row-coin-logo">
+              <div class="a-table-row-coin-symbol">{{row[col.key].symbol}}</div>
+              <div class="a-table-row-coin-name">{{row[col.key].name}}</div>
+            </div>
+          </template>
+          <template v-else-if="col.key === 'change'">
+            <span :class="[`${row[col.key].status}`]">
+              {{ row[col.key].status === 'up' ? '+' : '-' }} {{ row[col.key].value }}
+            </span>
+          </template>
+          <template v-else>
+            <span>{{ row[col.key] }}</span>
+          </template>
         </span>
       </TableRow>
     </div>
-
-    
   </div>
 </template>
 
@@ -77,8 +84,12 @@ export default class Table extends Vue {
     text-decoration: none;
     color: #212529;
 
-    .price-change {
+    .up {
       color: #3dad75;
+    }
+
+    .down {
+      color: #e16358;
     }
   }
 

@@ -1,7 +1,7 @@
 <template>
   <div class="drop-down-item">
-    <div class="drop-down-item-title">{{title}}</div>
-    <div class="drop-down-item-content">{{content}}</div>
+    <div v-if="title" class="drop-down-item-title">{{title}}</div>
+    <div v-if="content" class="drop-down-item-content">{{content}}</div>
   </div>
 </template>
 

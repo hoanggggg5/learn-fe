@@ -7,15 +7,15 @@
         </BNavItem>
         <BNavItem>Markets</BNavItem>
         <BNavItem type="dropdown" :content="contentNavBar[0]">Trade</BNavItem>
-        <BNavItem type="dropdown" :content="contentNavBar[0]">Futures</BNavItem>
-        <BNavItem type="dropdown" :content="contentNavBar[0]">Earn</BNavItem>
+        <BNavItem type="dropdown" :content="contentNavBar[1]">Futures</BNavItem>
+        <BNavItem type="dropdown" :content="contentNavBar[2]">Earn</BNavItem>
         <BNavItem>Polkadot</BNavItem>
-        <BNavItem type="dropdown" :content="contentNavBar[0]">More</BNavItem>
+        <BNavItem type="dropdown" :content="contentNavBar[3]">More</BNavItem>
       </BNavList>
       <BNavList>
         <BNavItem><nuxt-link to="/login">Login</nuxt-link></BNavItem>
         <BNavItem><nuxt-link to="/register">Sign in</nuxt-link></BNavItem>
-        <BNavItem type="dropdown">English/USD</BNavItem>
+        <BNavItem type="dropdown" :content="contentNavBar[4]" position="bottomRight" class="language-menu">English/USD</BNavItem>
       </BNavList>
     </div>
     <div class="header-banner">
@@ -65,6 +65,150 @@ export default class Header extends Vue {
             {
               title: "Leveraged ETF",
               content: "Leveraged ETF Trading triggers liquidation"
+            }
+          ]
+        },
+        {
+          title: "Spot 2",
+          listDropItem: [
+            {
+              title: "Spot",
+              content: "Convenient & popular spot trading"
+            },
+            {
+              title: "Liquidity Mining",
+              content: "Earn income from fees by providing Dual-Assets"
+            },
+            {
+              title: "Swapbox",
+              content: "One-Stop DEX Service Aggregated with Multi-chain"
+            },
+            {
+              title: "Leveraged ETF",
+              content: "Leveraged ETF Trading triggers liquidation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Trade",
+      listDrop: [
+        {
+          title: "Spot 2",
+          listDropItem: [
+            {
+              title: "Spot",
+              content: "Convenient & popular spot trading"
+            },
+            {
+              title: "Liquidity Mining",
+              content: "Earn income from fees by providing Dual-Assets"
+            },
+            {
+              title: "Swapbox",
+              content: "One-Stop DEX Service Aggregated with Multi-chain"
+            },
+            {
+              title: "Leveraged ETF",
+              content: "Leveraged ETF Trading triggers liquidation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Trade",
+      listDrop: [
+        {
+          title: "Spot 2",
+          listDropItem: [
+            {
+              title: "Spot",
+              content: "Convenient & popular spot trading"
+            },
+            {
+              title: "Liquidity Mining",
+              content: "Earn income from fees by providing Dual-Assets"
+            },
+            {
+              title: "Swapbox",
+              content: "One-Stop DEX Service Aggregated with Multi-chain"
+            },
+            {
+              title: "Leveraged ETF",
+              content: "Leveraged ETF Trading triggers liquidation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Trade",
+      listDrop: [
+        {
+          title: "Spot 2",
+          listDropItem: [
+            {
+              title: "Spot",
+              content: "Convenient & popular spot trading"
+            },
+            {
+              title: "Liquidity Mining",
+              content: "Earn income from fees by providing Dual-Assets"
+            },
+            {
+              title: "Swapbox",
+              content: "One-Stop DEX Service Aggregated with Multi-chain"
+            },
+            {
+              title: "Leveraged ETF",
+              content: "Leveraged ETF Trading triggers liquidation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: "Trade",
+      listDrop: [
+        {
+          title: "Language",
+          listDropItem: [
+            {
+              title: "English",
+            },
+            {
+              title: "繁體中文",
+            },
+            {
+              title: "Português",
+            },
+            {
+              title: "Русский",
+            },
+            {
+              title: "Vietnamese",
+            }
+          ]
+        },
+        {
+          title: "Currency",
+          listDropItem: [
+            {
+              title: "USD",
+            },
+            {
+              title: "CNY",
+            },
+            {
+              title: "EUR",
+            },
+            {
+              title: "RUB",
+            },
+            {
+              title: "BRL",
             }
           ]
         }

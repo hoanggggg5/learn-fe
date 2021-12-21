@@ -2,16 +2,19 @@
   <BButton
     :class="[
       `auth-button-${type}`, 'auth-button',
-      {
-        'disabled': disabled
-      }
+      { 'disabled': disabled }
     ]"
     :loading="loading"
     :disabled="disabled"
     :type="type"
     @click="handleClick"
   >
-    {{disabled ? ` Get ${time}s again` : content}}
+  <template v-if="!disabled">
+    <slot/>
+  </template>
+  <template v-else>
+    {{` Get ${time}s again`}}
+  </template>
   </BButton>
 </template>
 
@@ -23,9 +26,8 @@ export default class AuthButton extends Vue {
   @Prop() readonly loading!: boolean
   @Prop() disabled!: boolean
   @Prop() readonly type!: string
-  @Prop() readonly content!: string
+  @Prop() time!: number
 
-  time: number = 5
   countTime: any
 
   handleClick($event: any) {
@@ -64,6 +66,7 @@ export default class AuthButton extends Vue {
 
     &:hover {
       background: #02c6a3;
+      color: #fff;
       background-image: none;
     }
   }
