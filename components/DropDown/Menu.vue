@@ -15,7 +15,6 @@ export default class DropDownMenu extends Vue {}
   .drop-down {
     position: relative;
     background-color: transparent;
-    padding: 14px 12px;
     border-radius: 6px;
     z-index: 999;
     display: flex;

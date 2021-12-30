@@ -13,8 +13,16 @@
         <BNavItem type="dropdown" :content="contentNavBar[3]">More</BNavItem>
       </BNavList>
       <BNavList>
-        <BNavItem><nuxt-link to="/login">Login</nuxt-link></BNavItem>
-        <BNavItem><nuxt-link to="/register">Sign in</nuxt-link></BNavItem>
+        <template v-if="user">
+          <BNavItem type="dropdown" position="bottomRight" :content="contentNavBar[3]">Assets</BNavItem>
+          <BNavItem type="dropdown" position="bottomRight" :content="contentNavBar[3]">Orders</BNavItem>
+          <BNavItem position="bottomRight"><i class="far fa-user"></i></BNavItem>
+          <BNavItem position="bottomRight" :content="contentNavBar[3]"><i class="far fa-bell"></i></BNavItem>
+        </template>
+        <template v-else>
+          <BNavItem><nuxt-link to="/login">Login</nuxt-link></BNavItem>
+          <BNavItem><nuxt-link to="/register">Sign in</nuxt-link></BNavItem>
+        </template>
         <BNavItem type="dropdown" :content="contentNavBar[4]" position="bottomRight" class="language-menu">English/USD</BNavItem>
       </BNavList>
     </div>
@@ -40,9 +48,14 @@ import {
     Component,
     Vue
 } from 'nuxt-property-decorator'
+import store from '~/controllers/store'
 
 @Component({})
 export default class Header extends Vue {
+  get user() {
+    return store.value.user.uid
+  }
+
   contentNavBar: any[] = [
     {
       title: "Trade",

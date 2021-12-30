@@ -3,7 +3,6 @@
     <Header/>
     <div class="coin-list">
       <div class="title">Coin List</div>
-      {{ user }}
     </div>
     <Block class="musics">
       <Table
