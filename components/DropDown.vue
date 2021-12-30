@@ -55,7 +55,7 @@ export default class BInput extends Vue {
     position: absolute;
     margin: 5px 0;
     padding: 8px 0;
-    border: 1px solid rgba(43, 43, 43, 0.15);
+    // border: 1px solid rgba(43, 43, 43, 0.15);
     border-radius: 4px;
     background-color: #282a36;
     box-shadow: 0 0 5px rgba(43, 43, 43, 0.15);

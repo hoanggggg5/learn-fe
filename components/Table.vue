@@ -14,28 +14,14 @@
       <TableRow
         v-for="(row, index) in data"
         :key="index"
-        :is-router-link="isRouterLink"
       >
         <span
           v-for="col in columns"
           :key="col.key"
           :class="[ col.key, col.class, 'item', `text-${col.align || 'left'}` ]"
-        >
-          <template v-if="col.key === 'coin'">
-            <div class="a-table-row-coin">
-              <img :src="row[col.key].logo" alt="" class="a-table-row-coin-logo">
-              <div class="a-table-row-coin-symbol">{{row[col.key].symbol}}</div>
-              <div class="a-table-row-coin-name">{{row[col.key].name}}</div>
-            </div>
-          </template>
-          <template v-else-if="col.key === 'change'">
-            <span :class="[`${row[col.key].status}`]">
-              {{ row[col.key].status === 'up' ? '+' : '-' }} {{ row[col.key].value }}
-            </span>
-          </template>
-          <template v-else>
-            <span>{{ row[col.key] }}</span>
-          </template>
+        > 
+          <slot v-if="col.scopedSlot" :name="col.key" :row="row" :col="col"/>
+          <template v-else>{{ row[col.key] }}</template>
         </span>
       </TableRow>
     </div>

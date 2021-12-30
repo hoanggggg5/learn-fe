@@ -1,4 +1,5 @@
 import { Vue, Component } from 'vue-property-decorator';
+import controllers from '~/controllers';
 
 @Component({})
 export class AuthMixin extends Vue {
@@ -14,5 +15,11 @@ export class AuthMixin extends Vue {
   get password_error() {
     if (this.password.length === 0) return;
     return this.password.length < 5 ? 'Mật khẩu cần ít nhất 5 ký tự trở lên' : "";
+  }
+
+  async Login() {
+    if(this.email_error) return
+    if (this.password_error) return
+    await controllers.Login(this.email, this.password);
   }
 }

@@ -1,4 +1,9 @@
 export default {
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: true,
+
+  // Target: https://go.nuxtjs.dev/config-target
+  target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'learn',
@@ -25,8 +30,12 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
+
+  middleware: ['checkData'],
+  router: {
+    middleware: 'checkData',
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
@@ -40,12 +49,14 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/composition-api/module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
@@ -53,7 +64,10 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: '/',
+    proxy: true,
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
@@ -75,5 +89,9 @@ export default {
         },
       },
     }
+  },
+
+  proxy: {
+    '/api': 'http://learn.huuhait.me',
   }
 }

@@ -3,7 +3,7 @@
     <div class="b-nav-item">
       <slot/>
       <template v-if="type === 'dropdown'">
-        <i class="fas fa-chevron-down"></i>
+          <i class="fas fa-chevron-down"></i>
       </template>
     </div>
     <template v-if="type === 'dropdown'" slot="overlay">

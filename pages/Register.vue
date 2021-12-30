@@ -33,10 +33,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Mixins } from 'vue-property-decorator'
+import { AuthMixin } from '~/mixins'
 
 @Component({})
-export default class Register extends Vue {
+export default class Register extends Mixins(AuthMixin) {
   email = ''
   password = ''
   rePassword = ''

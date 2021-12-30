@@ -3,12 +3,26 @@
     <Header/>
     <div class="coin-list">
       <div class="title">Coin List</div>
+      {{ user }}
     </div>
     <Block class="musics">
       <Table
         :columns="columns"
         :data="data"
-      />
+      >
+        <template slot="coin" slot-scope="{ row, col }">
+          <div class="a-table-row-coin">
+            <img :src="row[col.key].logo" alt="" class="a-table-row-coin-logo">
+            <div class="a-table-row-coin-symbol">{{row[col.key].symbol}}</div>
+            <div class="a-table-row-coin-name">{{row[col.key].name}}</div>
+          </div>
+        </template>
+        <template slot="change" slot-scope="{ row, col }">
+          <span :class="[`${row[col.key].status}`]">
+            {{ row[col.key].status === 'up' ? '+' : '-' }} {{ row[col.key].value }}
+          </span>
+        </template>
+      </Table>
     </Block>
   </div>  
 </template>
@@ -16,12 +30,19 @@
 <script lang="ts">
 import { Component, Vue } from "nuxt-property-decorator"
 import { Align, Column } from '@/types'
+import store from "~/controllers/store"
 
 @Component({})
 export default class index extends Vue {
+
+  get user() {
+    return store.value.user
+  }
+
   columns: Column[] = [
     {
       key: 'coin',
+      scopedSlot: true,
       title: 'Coin Name',
       align: Align.Left,  
     },
@@ -32,6 +53,7 @@ export default class index extends Vue {
     },
     {
       key: 'change',
+      scopedSlot: true,
       title: '24h Change',
       align: Align.Left,
     },
